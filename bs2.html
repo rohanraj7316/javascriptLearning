@@ -1,0 +1,82 @@
+<html>
+<head>
+	
+</head>
+<body onload="myDrop()">
+<h1>this is sample app</h1>
+<select id="sample" onchange="myFunction()">
+  
+ </select>
+ <select id="chose">
+ 	
+ </select>
+<button type="button" onclick="myDisp()" >click me</button>
+<p id="demo"></p>
+<script type="text/javascript">
+count =0;
+function myDrop(){
+	var  cat=["FRUITS","COLOR"];
+	var x = document.getElementById("sample");
+	var i;
+	for(i=0;i<cat.length;i++){
+		var opt = document.createElement("option");
+		opt.innerHTML = cat[i];
+		opt.value = cat[i];
+		x.add(opt);
+	}
+}
+function myFunction(){
+	
+	//document.getElementById("chose").reset();
+
+	var fruit =["apple","orange","banana"];
+	var color =["black","red", "white"];
+	var x = document.getElementById("sample");
+	console.log(document.getElementById("sample").value,'hello');
+	var val = x.options[x.selectedIndex].text;
+	
+	var obj = document.getElementById("chose");
+	if(val=="FRUITS"){
+		//document.getElementById("demo").innerHTML=val;
+		elementAdd(fruit);
+		
+	}else{
+		if(val=="COLOR")
+		{
+			//document.getElementById("demo").innerHTML=val;
+			elementAdd(color);
+		}
+	}
+
+}
+	function elementAdd(name){
+			var y = document.getElementById("chose");
+		//y.reset();
+	if(count==0){
+	for(var i=0;i<3;i++){
+	var opt = document.createElement("option");
+
+	opt.innerHTML = name[i];
+	opt.value = name[i];
+	y.add(opt,i);
+	}
+	count=count+1;
+}else{
+	for(var i =0;i<name.length;i++)
+	{
+		y.options[i].text=name[i];
+	}
+}
+}
+	
+function myDisp()
+{
+
+}
+
+</script>
+	
+	
+	
+</body>
+</html>
